@@ -1,8 +1,26 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "Taiwan Mobile",
+  "homepage": "https://www.taiwanmobile.com/index.html",
   "items": [
+    {
+      "name": "login",
+      "type": "registry:component",
+      "title": "Complex Component",
+      "description": "A complex component showing hooks, libs and components.",
+      "registryDependencies": ["card"],
+      "files": [
+        {
+          "path": "registry/m-plus/blocks/login/page.tsx",
+          "type": "registry:page",
+          "target": "app/login/page.tsx"
+        },
+        {
+          "path": "registry/m-plus/blocks/login/components/login-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "hello-world",
       "type": "registry:component",

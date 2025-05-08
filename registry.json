@@ -8,7 +8,7 @@
       "type": "registry:component",
       "title": "Complex Component",
       "description": "A complex component showing hooks, libs and components.",
-      "registryDependencies": ["card"],
+      "registryDependencies": ["card", "input", "label", "button"],
       "files": [
         {
           "path": "registry/m-plus/blocks/login/page.tsx",

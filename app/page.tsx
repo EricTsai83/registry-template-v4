@@ -26,7 +26,7 @@ export default function Home() {
             </h2>
             <OpenInV0Button name="login" className="w-fit" />
           </div>
-          <div className="flex items-center justify-center min-h-[400px] relative">
+          <div className="flex items-center justify-center">
             <LoginPage />
           </div>
         </div>

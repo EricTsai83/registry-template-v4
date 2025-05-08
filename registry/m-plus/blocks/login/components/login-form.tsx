@@ -1,95 +1,170 @@
-import { cn } from "@/lib/utils";
-import { Button } from "@/registry/m-plus/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/registry/m-plus/ui/card";
-import { Input } from "@/registry/m-plus/ui/input";
-import { Label } from "@/registry/m-plus/ui/label";
+"use client";
 
-export function LoginForm({
-  className,
-  ...props
-}: React.ComponentPropsWithoutRef<"div">) {
+import { Button } from "@/registry/m-plus/ui/button";
+import { Input } from "@/registry/m-plus/ui/input";
+import { useState } from "react";
+import Link from "next/link";
+import { HelpCircle } from "lucide-react";
+import { Checkbox } from "@/registry/m-plus/ui/checkbox";
+import { Users } from "lucide-react";
+import { CirclePlus } from "lucide-react";
+import {
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/registry/m-plus/ui/select";
+import { Select } from "@/registry/m-plus/ui/select";
+import { Separator } from "@/registry/m-plus/ui/separator";
+
+export function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [verificationCode, setVerificationCode] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const handleEmailLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Email login with:", { email, password, rememberMe });
+    // Add your authentication logic here
+  };
+
+  const handleOtpLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("OTP login with:", { verificationCode });
+    // Add your OTP verification logic here
+  };
+
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle className="text-xl">Welcome back</CardTitle>
-          <CardDescription>
-            Login with your Apple or Google account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form>
-            <div className="grid gap-6">
-              <div className="flex flex-col gap-4">
-                <Button variant="outline" className="w-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  Login with Apple
-                </Button>
-                <Button variant="outline" className="w-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  Login with Google
-                </Button>
-              </div>
-              <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
-                <span className="relative z-10 bg-background px-2 text-muted-foreground">
-                  Or continue with
-                </span>
-              </div>
-              <div className="grid gap-6">
-                <div className="grid gap-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="m@example.com"
-                    required
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <div className="flex items-center">
-                    <Label htmlFor="password">Password</Label>
-                    <a
-                      href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Forgot your password?
-                    </a>
-                  </div>
-                  <Input id="password" type="password" required />
-                </div>
-                <Button type="submit" className="w-full">
-                  Login
-                </Button>
-              </div>
-              <div className="text-center text-sm">
-                Don&apos;t have an account?{" "}
-                <a href="#" className="underline underline-offset-4">
-                  Sign up
-                </a>
+    <div className="w-full max-w-3xl bg-white rounded-lg shadow-md overflow-hidden">
+      {/* Header */}
+      <div className="bg-cyan-600 p-4 flex justify-center items-center">
+        <div className="flex items-center">
+          <div className="bg-cyan-500 rounded-full p-2 mr-2 border-2 border-white">
+            <Users className="h-7 w-7 text-white" />
+          </div>
+
+          <div className="flex items-center justify-center gap-1">
+            <h1 className="text-white text-2xl font-semibold">messenger</h1>
+            <CirclePlus className="h-5 w-5 text-white " />
+          </div>
+        </div>
+      </div>
+
+      {/* Welcome Text */}
+      <div className="text-center p-4 border-b">
+        <p className="text-gray-700">
+          歡迎使用 M+ 網頁版，您可選擇以{" "}
+          <span className="text-[#1289bc] font-bold">M+帳號登入</span> 或
+          在M+手機版上
+          <span className="text-[#1289bc] font-bold">取得一次性密碼登入</span>
+        </p>
+      </div>
+
+      {/* Login Forms Container */}
+      <div className="flex flex-col md:flex-row justify-between gap-4 p-4 w-full">
+        {/* Left Column - Email Login */}
+
+        <div className="flex justify-center w-full">
+          <form
+            onSubmit={handleEmailLogin}
+            className="flex flex-col justify-between space-y-4 lg:h-[280px] w-full"
+          >
+            <div>
+              <h2 className="text-cyan-600 font-bold">M+帳號登入</h2>
+              <div className="space-y-2 mt-4">
+                <Select defaultValue="email">
+                  <SelectTrigger className="w-full ">
+                    <SelectValue placeholder="請選擇" className="" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="email">電子郵件</SelectItem>
+                    <SelectItem value="phone">手機號碼</SelectItem>
+                    <SelectItem value="mplusid">M+ ID</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Input
+                  type="email"
+                  placeholder="請輸入電子郵件"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full text-center"
+                />
+                <Input
+                  type="password"
+                  placeholder="請輸入密碼"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full text-center"
+                />
               </div>
             </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="remember"
+                  checked={rememberMe}
+                  onCheckedChange={(checked: boolean) => setRememberMe(checked)}
+                />
+                <label htmlFor="remember" className="text-sm text-gray-600">
+                  記住我
+                </label>
+                <div className="flex-1 text-right">
+                  <Link
+                    href="#"
+                    className="text-sm text-gray-600 hover:underline"
+                  >
+                    第一次登入
+                  </Link>
+                </div>
+              </div>
+              <Button
+                type="submit"
+                className="w-full bg-cyan-600 hover:bg-cyan-700"
+              >
+                M+帳號密碼登入
+              </Button>
+            </div>
           </form>
-        </CardContent>
-      </Card>
-      <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary  ">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        </div>
+
+        <Separator className="md:hidden" />
+        <Separator className="hidden md:block h-64" orientation="vertical" />
+        <div className="flex justify-center  w-full">
+          <form
+            onSubmit={handleOtpLogin}
+            className="space-y-4 flex flex-col justify-between lg:h-[280px] w-full"
+          >
+            <div>
+              <h2 className="text-green-600 font-bold">一次性密碼登入</h2>
+              <Input
+                type="text"
+                placeholder="請輸入密碼"
+                value={verificationCode}
+                onChange={(e) => setVerificationCode(e.target.value)}
+                className="w-full text-center mt-4"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Link
+                href="#"
+                className="text-sm text-gray-600 hover:underline flex items-center"
+              >
+                一次性密碼是什麼
+                <HelpCircle className="h-4 w-4 ml-1 bg-gray-500 text-white rounded-full" />
+              </Link>
+
+              <Button
+                type="submit"
+                className="w-full bg-green-600 hover:bg-green-700"
+              >
+                一次性密碼登入
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

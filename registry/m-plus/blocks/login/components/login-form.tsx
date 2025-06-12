@@ -1,11 +1,11 @@
 "use client";
 
-import { Button } from "@/registry/m-plus/ui/button";
-import { Input } from "@/registry/m-plus/ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import Link from "next/link";
 import { HelpCircle } from "lucide-react";
-import { Checkbox } from "@/registry/m-plus/ui/checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Users } from "lucide-react";
 import { CirclePlus } from "lucide-react";
 import {
@@ -13,9 +13,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/registry/m-plus/ui/select";
-import { Select } from "@/registry/m-plus/ui/select";
-import { Separator } from "@/registry/m-plus/ui/separator";
+} from "@/components/ui/select";
+import { Select } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");

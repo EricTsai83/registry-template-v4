@@ -6,8 +6,8 @@
     {
       "name": "login",
       "type": "registry:component",
-      "title": "Complex Component",
-      "description": "A complex component showing hooks, libs and components.",
+      "title": "Login",
+      "description": "A login block.",
       "registryDependencies": ["card", "input", "label", "button"],
       "files": [
         {
@@ -18,6 +18,34 @@
         {
           "path": "registry/m-plus/blocks/login/components/login-form.tsx",
           "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "A sidebar component.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/m-plus/blocks/sidebar/page.tsx",
+          "type": "registry:page",
+          "target": "app/sidebar/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chat-window",
+      "type": "registry:component",
+      "title": "Chat Window",
+      "description": "A chat window component.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/m-plus/blocks/chat-window/page.tsx",
+          "type": "registry:page",
+          "target": "app/chat-window/page.tsx"
         }
       ]
     },

@@ -6,6 +6,8 @@ import PokemonPage from "@/registry/new-york/blocks/complex-component/page";
 import { ExampleCard } from "@/registry/new-york/blocks/example-with-css/example-card";
 // For M Plus
 import LoginPage from "@/registry/m-plus/blocks/login/page";
+import ChatListPage from "@/registry/m-plus/blocks/sidebar/page";
+import ChatWindowPage from "@/registry/m-plus/blocks/chat-window/page";
 // This page displays items from the custom registry.
 // You are free to implement this with your own design as needed.
 
@@ -22,12 +24,36 @@ export default function Home() {
         <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
           <div className="flex items-center justify-between">
             <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A simple hello world component
+              A login block.
             </h2>
             <OpenInV0Button name="login" className="w-fit" />
           </div>
           <div className="flex items-center justify-center">
             <LoginPage />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm text-muted-foreground sm:pl-3">
+              A chat list block.
+            </h2>
+            <OpenInV0Button name="chat-list" className="w-fit" />
+          </div>
+          <div className="flex items-center justify-center">
+            <ChatListPage />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm text-muted-foreground sm:pl-3">
+              A chat window block.
+            </h2>
+            <OpenInV0Button name="chat-window" className="w-fit" />
+          </div>
+          <div className="flex items-center justify-center">
+            <ChatWindowPage />
           </div>
         </div>
 

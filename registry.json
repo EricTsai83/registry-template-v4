@@ -32,6 +32,10 @@
           "path": "registry/m-plus/blocks/sidebar/page.tsx",
           "type": "registry:page",
           "target": "app/sidebar/page.tsx"
+        },
+        {
+          "path": "registry/m-plus/blocks/sidebar/components/chat-list.tsx",
+          "type": "registry:component"
         }
       ]
     },
@@ -46,6 +50,10 @@
           "path": "registry/m-plus/blocks/chat-window/page.tsx",
           "type": "registry:page",
           "target": "app/chat-window/page.tsx"
+        },
+        {
+          "path": "registry/m-plus/blocks/chat-window/components/chat-window-content.tsx",
+          "type": "registry:component"
         }
       ]
     },

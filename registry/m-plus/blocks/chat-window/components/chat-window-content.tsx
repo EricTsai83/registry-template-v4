@@ -3,15 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import {
-  Calendar,
-  Users,
-  X,
-  Paperclip,
-  Video,
-  Smile,
-  Send,
-} from "lucide-react";
+import { Calendar, Users, X, Paperclip, Video, Smile } from "lucide-react";
 import { MplusMeetIcon } from "@/registry/m-plus/blocks/chat-window/components/icons";
 import { Textarea } from "@/components/ui/textarea";
 

@@ -4,11 +4,18 @@
   "type": "registry:component",
   "title": "Chat Window",
   "description": "A chat window component.",
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "badge",
+    "avatar",
+    "separator",
+    "textarea"
+  ],
   "files": [
     {
       "path": "registry/m-plus/blocks/chat-window/page.tsx",
-      "content": "import { ChatWindowContent } from \"./components/chat-window-content\";\n\nexport default function ChatWindow() {\n  return (\n    <div className=\"w-full max-w-3xl\">\n      <ChatWindowContent />\n    </div>\n  );\n}\n",
+      "content": "import { ChatWindowContent } from \"@/registry/m-plus/blocks/chat-window/components/chat-window-content\";\n\nexport default function ChatWindow() {\n  return (\n    <div className=\"w-full max-w-3xl\">\n      <ChatWindowContent />\n    </div>\n  );\n}\n",
       "type": "registry:page",
       "target": "app/chat-window/page.tsx"
     },

@@ -26,7 +26,7 @@
       "type": "registry:component",
       "title": "Sidebar",
       "description": "A sidebar component.",
-      "registryDependencies": [],
+      "registryDependencies": ["input", "button", "badge", "avatar"],
       "files": [
         {
           "path": "registry/m-plus/blocks/sidebar/page.tsx",
@@ -44,7 +44,14 @@
       "type": "registry:component",
       "title": "Chat Window",
       "description": "A chat window component.",
-      "registryDependencies": [],
+      "registryDependencies": [
+        "button",
+        "card",
+        "badge",
+        "avatar",
+        "separator",
+        "textarea"
+      ],
       "files": [
         {
           "path": "registry/m-plus/blocks/chat-window/page.tsx",

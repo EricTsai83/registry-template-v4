@@ -4,11 +4,16 @@
   "type": "registry:component",
   "title": "Sidebar",
   "description": "A sidebar component.",
-  "registryDependencies": [],
+  "registryDependencies": [
+    "input",
+    "button",
+    "badge",
+    "avatar"
+  ],
   "files": [
     {
       "path": "registry/m-plus/blocks/sidebar/page.tsx",
-      "content": "import ChatList from \"./components/chat-list\";\n\nexport default function Page() {\n  return <ChatList />;\n}\n",
+      "content": "import ChatList from \"@/registry/m-plus/blocks/sidebar/components/chat-list\";\n\nexport default function Page() {\n  return <ChatList />;\n}\n",
       "type": "registry:page",
       "target": "app/sidebar/page.tsx"
     },

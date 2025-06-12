@@ -38,7 +38,7 @@ export default function Home() {
             <h2 className="text-sm text-muted-foreground sm:pl-3">
               A chat list block.
             </h2>
-            <OpenInV0Button name="chat-list" className="w-fit" />
+            <OpenInV0Button name="sidebar" className="w-fit" />
           </div>
           <div className="flex items-center justify-center">
             <ChatListPage />

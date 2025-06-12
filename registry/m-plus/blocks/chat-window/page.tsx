@@ -1,4 +1,4 @@
-import { ChatWindowContent } from "./components/chat-window-content";
+import { ChatWindowContent } from "@/registry/m-plus/blocks/chat-window/components/chat-window-content";
 
 export default function ChatWindow() {
   return (

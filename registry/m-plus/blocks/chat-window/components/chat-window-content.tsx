@@ -12,7 +12,7 @@ import {
   Smile,
   Send,
 } from "lucide-react";
-import { MplusMeetIcon } from "./icons";
+import { MplusMeetIcon } from "@/registry/m-plus/blocks/chat-window/components/icons";
 import { Textarea } from "@/components/ui/textarea";
 
 const messages = [

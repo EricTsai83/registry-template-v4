@@ -3,7 +3,6 @@ import { VariantProps } from "class-variance-authority";
 
 export default function RainbowGlassButton({
   children,
-  ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;

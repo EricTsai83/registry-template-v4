@@ -140,7 +140,7 @@ export default function Page() {
 
         {/* Glass Style Cards */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {styles.map((style, index) => (
+          {styles.map((style) => (
             <LiquidGlassCard key={style.id}>
               <div className="mb-6 flex items-start justify-between">
                 <div className="flex items-center gap-4">
@@ -191,7 +191,7 @@ export default function Page() {
                     玻璃 AI 特效
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {style.aiFeatures.map((feature, idx) => (
+                    {style.aiFeatures.map((feature) => (
                       <Badge
                         key={feature}
                         variant="outline"

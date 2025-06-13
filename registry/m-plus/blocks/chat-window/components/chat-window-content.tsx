@@ -82,9 +82,9 @@ const messages = [
 
 export function ChatWindowContent() {
   return (
-    <Card className="flex flex-col h-screen rounded-lg shadow-lg p-0 gap-0">
+    <Card className="flex flex-col h-[80vh] rounded-lg shadow-lg p-0 gap-0">
       {/* Header */}
-      <div className="flex items-center bg-sky-600 text-white px-4 py-3 rounded-t-lg">
+      <div className="flex items-center bg-cyan-600 text-white px-4 py-3 rounded-t-lg">
         <div className="flex-1"></div>
         <h1 className="text-lg font-semibold">敏捷開發技術課(12)</h1>
         <div className="flex-1 flex items-center justify-end gap-1">
@@ -172,28 +172,40 @@ export function ChatWindowContent() {
       <div className="p-3 bg-white rounded-b-lg">
         <div className="flex items-center justify-start gap-6 mb-2">
           <div className="flex  items-center">
-            <Button variant="ghost" size="icon" className="text-gray-600">
+            <Button
+              variant="ghost"
+              className="text-gray-500 text-xs hover:cursor-pointer"
+            >
               <Paperclip className="h-5 w-5" />
+              傳送檔案
             </Button>
-            <span className="text-xs text-gray-500 mt-1">傳送檔案</span>
           </div>
           <div className="flex  items-center">
-            <Button variant="ghost" size="icon" className="text-gray-600">
+            <Button
+              variant="ghost"
+              className="text-gray-500 text-xs hover:cursor-pointer"
+            >
               <Video className="h-5 w-5" />
+              視訊
             </Button>
-            <span className="text-xs text-gray-500 mt-1">視訊</span>
           </div>
           <div className="flex  items-center">
-            <Button variant="ghost" size="icon" className="text-gray-600">
+            <Button
+              variant="ghost"
+              className="text-gray-500 text-xs hover:cursor-pointer"
+            >
               <Smile className="h-5 w-5" />
+              酷圖+
             </Button>
-            <span className="text-xs text-gray-500 mt-1">酷圖+</span>
           </div>
           <div className="flex  items-center">
-            <Button variant="ghost" size="icon" className="text-blue-700">
-              <MplusMeetIcon className="h-5 w-5" />
+            <Button
+              variant="ghost"
+              className="text-gray-500 text-xs hover:cursor-pointer"
+            >
+              <MplusMeetIcon className="h-5 w-5 text-blue-700" />
+              Meet 視訊
             </Button>
-            <span className="text-xs text-gray-500 mt-1">Meet 視訊</span>
           </div>
         </div>
 

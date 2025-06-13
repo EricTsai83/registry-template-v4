@@ -1,15 +1,36 @@
-import * as React from "react";
 import { OpenInV0Button } from "@/components/open-in-v0-button";
 import { HelloWorld } from "@/registry/new-york/blocks/hello-world/hello-world";
 import { ExampleForm } from "@/registry/new-york/blocks/example-form/example-form";
 import PokemonPage from "@/registry/new-york/blocks/complex-component/page";
 import { ExampleCard } from "@/registry/new-york/blocks/example-with-css/example-card";
 // For M Plus
-import LoginPage from "@/registry/m-plus/blocks/login/page";
-import ChatListPage from "@/registry/m-plus/blocks/sidebar/page";
-import ChatWindowPage from "@/registry/m-plus/blocks/chat-window/page";
-// This page displays items from the custom registry.
-// You are free to implement this with your own design as needed.
+import Login from "@/registry/m-plus/blocks/login/page";
+import ChatList from "@/registry/m-plus/blocks/sidebar/page";
+import ChatWindow from "@/registry/m-plus/blocks/chat-window/page";
+import Header from "@/registry/m-plus/blocks/header/page";
+
+// 新增 RegistryBlock 組件
+function RegistryBlock({
+  title,
+  blockName,
+  children,
+}: {
+  title: string;
+  blockName: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+      <div className="flex items-center justify-between">
+        <h2 className="text-sm text-muted-foreground sm:pl-3">{title}</h2>
+        <OpenInV0Button name={blockName} className="w-fit" />
+      </div>
+      <div className="flex items-center justify-center min-h-[400px] relative">
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -21,89 +42,49 @@ export default function Home() {
         </p>
       </header>
       <main className="flex flex-col flex-1 gap-8">
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A login block.
-            </h2>
-            <OpenInV0Button name="login" className="w-fit" />
-          </div>
-          <div className="flex items-center justify-center">
-            <LoginPage />
-          </div>
-        </div>
+        <RegistryBlock title="A login block." blockName="login">
+          <Login />
+        </RegistryBlock>
 
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A chat list block.
-            </h2>
-            <OpenInV0Button name="sidebar" className="w-fit" />
-          </div>
-          <div className="flex items-center justify-center">
-            <ChatListPage />
-          </div>
-        </div>
+        <RegistryBlock title="A chat list block." blockName="sidebar">
+          <ChatList />
+        </RegistryBlock>
 
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A chat window block.
-            </h2>
-            <OpenInV0Button name="chat-window" className="w-fit" />
-          </div>
-          <div className="flex items-center justify-center">
-            <ChatWindowPage />
-          </div>
-        </div>
+        <RegistryBlock title="A chat window block." blockName="chat-window">
+          <ChatWindow />
+        </RegistryBlock>
 
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A simple hello world component
-            </h2>
-            <OpenInV0Button name="hello-world" className="w-fit" />
-          </div>
-          <div className="flex items-center justify-center min-h-[400px] relative">
-            <HelloWorld />
-          </div>
-        </div>
+        <RegistryBlock title="A header block." blockName="header">
+          <Header />
+        </RegistryBlock>
 
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A contact form with Zod validation.
-            </h2>
-            <OpenInV0Button name="example-form" className="w-fit" />
-          </div>
-          <div className="flex items-center justify-center min-h-[500px] relative">
-            <ExampleForm />
-          </div>
-        </div>
+        <RegistryBlock
+          title="A simple hello world component"
+          blockName="hello-world"
+        >
+          <HelloWorld />
+        </RegistryBlock>
 
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A complex component showing hooks, libs and components.
-            </h2>
-            <OpenInV0Button name="complex-component" className="w-fit" />
-          </div>
-          <div className="flex items-center justify-center min-h-[400px] relative">
-            <PokemonPage />
-          </div>
-        </div>
+        <RegistryBlock
+          title="A contact form with Zod validation."
+          blockName="example-form"
+        >
+          <ExampleForm />
+        </RegistryBlock>
 
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A login form with a CSS file.
-            </h2>
-            <OpenInV0Button name="example-with-css" className="w-fit" />
-          </div>
-          <div className="flex items-center justify-center min-h-[400px] relative">
-            <ExampleCard />
-          </div>
-        </div>
+        <RegistryBlock
+          title="A complex component showing hooks, libs and components."
+          blockName="complex-component"
+        >
+          <PokemonPage />
+        </RegistryBlock>
+
+        <RegistryBlock
+          title="A login form with a CSS file."
+          blockName="example-with-css"
+        >
+          <ExampleCard />
+        </RegistryBlock>
       </main>
     </div>
   );

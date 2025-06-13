@@ -1,6 +1,6 @@
-import { ChatWindowContent } from "@/registry/m-plus/blocks/chat-window/components/chat-window-content";
 import { ContentHeader } from "@/components/content-header";
 import { RegistryBlock } from "@/components/registry-block";
+import { ChatWindowContent } from "@/registry/m-plus/blocks/chat-window/components/chat-window-content";
 
 export default function ChatWindowPage() {
   return (

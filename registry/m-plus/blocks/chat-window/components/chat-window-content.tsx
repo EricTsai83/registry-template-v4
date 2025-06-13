@@ -1,11 +1,11 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Calendar, Users, X, Paperclip, Video, Smile } from "lucide-react";
-import { MplusMeetIcon } from "@/registry/m-plus/blocks/chat-window/components/icons";
 import { Textarea } from "@/components/ui/textarea";
+import { MplusMeetIcon } from "@/registry/m-plus/blocks/chat-window/components/icons";
+import { Calendar, Paperclip, Smile, Users, Video, X } from "lucide-react";
 
 const messages = [
   {
@@ -82,12 +82,12 @@ const messages = [
 
 export function ChatWindowContent() {
   return (
-    <Card className="flex flex-col h-[80vh] rounded-lg shadow-lg p-0 gap-0">
+    <Card className="flex h-[80vh] flex-col gap-0 rounded-lg p-0 shadow-lg">
       {/* Header */}
-      <div className="flex items-center bg-cyan-600 text-white px-4 py-3 rounded-t-lg">
+      <div className="flex items-center rounded-t-lg bg-cyan-600 px-4 py-3 text-white">
         <div className="flex-1"></div>
         <h1 className="text-lg font-semibold">敏捷開發技術課(12)</h1>
-        <div className="flex-1 flex items-center justify-end gap-1">
+        <div className="flex flex-1 items-center justify-end gap-1">
           <Button
             variant="ghost"
             size="icon"
@@ -113,7 +113,7 @@ export function ChatWindowContent() {
       </div>
 
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+      <div className="flex-1 space-y-4 overflow-y-auto bg-gray-50 p-4">
         {messages.map((msg) => {
           // Date separator
           if (msg.type === "date-separator") {
@@ -121,7 +121,7 @@ export function ChatWindowContent() {
               <div key={msg.id} className="flex items-center justify-center">
                 <Badge
                   variant="secondary"
-                  className="bg-gray-200 text-gray-600 px-3 py-1"
+                  className="bg-gray-200 px-3 py-1 text-gray-600"
                 >
                   {msg.content}
                 </Badge>
@@ -133,7 +133,7 @@ export function ChatWindowContent() {
           if (msg.type === "info") {
             return (
               <div key={msg.id} className="text-center">
-                <span className="text-sm text-muted-foreground">
+                <span className="text-muted-foreground text-sm">
                   {msg.content}
                 </span>
               </div>
@@ -143,7 +143,7 @@ export function ChatWindowContent() {
           // Regular message
           return (
             <div key={msg.id} className="flex items-start gap-3">
-              <Avatar className="w-10 h-10">
+              <Avatar className="h-10 w-10">
                 <AvatarImage src={msg.avatar} alt="avatar" />
                 <AvatarFallback className="bg-gray-200 text-gray-600">
                   {msg.name ? msg.name.charAt(0) : "U"}
@@ -151,16 +151,16 @@ export function ChatWindowContent() {
               </Avatar>
               <div className="flex-1 space-y-1">
                 {msg.name && (
-                  <p className="text-sm text-muted-foreground font-medium">
+                  <p className="text-muted-foreground text-sm font-medium">
                     {msg.name}
                   </p>
                 )}
-                <Card className="bg-sky-100 border-sky-200 p-3 max-w-lg shadow-sm">
-                  <div className="text-gray-800 text-sm leading-relaxed">
+                <Card className="max-w-lg border-sky-200 bg-sky-100 p-3 shadow-sm">
+                  <div className="text-sm leading-relaxed text-gray-800">
                     {msg.content}
                   </div>
                 </Card>
-                <p className="text-xs text-muted-foreground">{msg.time}</p>
+                <p className="text-muted-foreground text-xs">{msg.time}</p>
               </div>
             </div>
           );
@@ -169,39 +169,39 @@ export function ChatWindowContent() {
 
       <Separator className="mx-0" />
 
-      <div className="p-3 bg-white rounded-b-lg">
-        <div className="flex items-center justify-start gap-6 mb-2">
-          <div className="flex  items-center">
+      <div className="rounded-b-lg bg-white p-3">
+        <div className="mb-2 flex items-center justify-start gap-6">
+          <div className="flex items-center">
             <Button
               variant="ghost"
-              className="text-gray-500 text-xs hover:cursor-pointer"
+              className="text-xs text-gray-500 hover:cursor-pointer"
             >
               <Paperclip className="h-5 w-5" />
               傳送檔案
             </Button>
           </div>
-          <div className="flex  items-center">
+          <div className="flex items-center">
             <Button
               variant="ghost"
-              className="text-gray-500 text-xs hover:cursor-pointer"
+              className="text-xs text-gray-500 hover:cursor-pointer"
             >
               <Video className="h-5 w-5" />
               視訊
             </Button>
           </div>
-          <div className="flex  items-center">
+          <div className="flex items-center">
             <Button
               variant="ghost"
-              className="text-gray-500 text-xs hover:cursor-pointer"
+              className="text-xs text-gray-500 hover:cursor-pointer"
             >
               <Smile className="h-5 w-5" />
               酷圖+
             </Button>
           </div>
-          <div className="flex  items-center">
+          <div className="flex items-center">
             <Button
               variant="ghost"
-              className="text-gray-500 text-xs hover:cursor-pointer"
+              className="text-xs text-gray-500 hover:cursor-pointer"
             >
               <MplusMeetIcon className="h-5 w-5 text-blue-700" />
               Meet 視訊
@@ -211,11 +211,11 @@ export function ChatWindowContent() {
 
         <div className="relative flex flex-col">
           <Textarea
-            className="pr-20 border rounded px-3 py-2 text-sm h-36 overflow-y-auto resize-none focus-visible:ring-0 focus-visible:border-gray-300"
+            className="h-36 resize-none overflow-y-auto rounded border px-3 py-2 pr-20 text-sm focus-visible:border-gray-300 focus-visible:ring-0"
             style={{ minHeight: 40 }}
           />
-          <div className="absolute bottom-1 right-2 flex items-center gap-1">
-            <span className="text-xs text-gray-400 ml-1">
+          <div className="absolute right-2 bottom-1 flex items-center gap-1">
+            <span className="ml-1 text-xs text-gray-400">
               輸入文字時可使用shift + enter 換行
             </span>
           </div>

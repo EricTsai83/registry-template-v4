@@ -1,13 +1,13 @@
 import { OpenInV0Button } from "@/components/open-in-v0-button";
-import { HelloWorld } from "@/registry/new-york/blocks/hello-world/hello-world";
-import { ExampleForm } from "@/registry/new-york/blocks/example-form/example-form";
 import PokemonPage from "@/registry/new-york/blocks/complex-component/page";
+import { ExampleForm } from "@/registry/new-york/blocks/example-form/example-form";
 import { ExampleCard } from "@/registry/new-york/blocks/example-with-css/example-card";
+import { HelloWorld } from "@/registry/new-york/blocks/hello-world/hello-world";
 // For M Plus
-import Login from "@/registry/m-plus/blocks/login/page";
-import ChatList from "@/registry/m-plus/blocks/sidebar/page";
 import ChatWindow from "@/registry/m-plus/blocks/chat-window/page";
 import Header from "@/registry/m-plus/blocks/header/page";
+import Login from "@/registry/m-plus/blocks/login/page";
+import ChatList from "@/registry/m-plus/blocks/sidebar/page";
 
 // 新增 RegistryBlock 組件
 function RegistryBlock({
@@ -20,12 +20,12 @@ function RegistryBlock({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+    <div className="relative flex min-h-[450px] flex-col gap-4 rounded-lg border p-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-sm text-muted-foreground sm:pl-3">{title}</h2>
+        <h2 className="text-muted-foreground text-sm sm:pl-3">{title}</h2>
         <OpenInV0Button name={blockName} className="w-fit" />
       </div>
-      <div className="flex items-center justify-center min-h-[400px] relative">
+      <div className="relative flex min-h-[400px] items-center justify-center">
         {children}
       </div>
     </div>
@@ -34,14 +34,14 @@ function RegistryBlock({
 
 export default function Home() {
   return (
-    <div className="max-w-3xl mx-auto flex flex-col min-h-svh px-4 py-8 gap-8">
+    <div className="mx-auto flex min-h-svh max-w-3xl flex-col gap-8 px-4 py-8">
       <header className="flex flex-col gap-1">
         <h1 className="text-3xl font-bold tracking-tight">Custom Registry</h1>
         <p className="text-muted-foreground">
           A custom registry for distributing code using shadcn.
         </p>
       </header>
-      <main className="flex flex-col flex-1 gap-8">
+      <main className="flex flex-1 flex-col gap-8">
         <RegistryBlock title="A login block." blockName="login">
           <Login />
         </RegistryBlock>

@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { baseUrl } from "@/lib/utils";
+import { baseUrl, cn } from "@/lib/utils";
 
 export function OpenInV0Button({
   name,
@@ -11,7 +10,7 @@ export function OpenInV0Button({
       aria-label="Open in v0"
       size="sm"
       className={cn(
-        "shadow-none bg-black text-white hover:bg-black hover:text-white dark:bg-white dark:text-black",
+        "bg-black text-white shadow-none hover:bg-black hover:text-white dark:bg-white dark:text-black",
         className,
       )}
       asChild

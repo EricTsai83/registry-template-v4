@@ -1,6 +1,6 @@
-import { useCallback, useMemo } from "react";
-import { useTheme } from "next-themes";
 import { META_THEME_COLORS } from "@/config/site";
+import { useTheme } from "next-themes";
+import { useCallback, useMemo } from "react";
 
 export function useMetaColor() {
   const { resolvedTheme } = useTheme();

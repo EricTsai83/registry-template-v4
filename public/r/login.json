@@ -4,12 +4,7 @@
   "type": "registry:component",
   "title": "Login",
   "description": "A login block.",
-  "registryDependencies": [
-    "card",
-    "input",
-    "label",
-    "button"
-  ],
+  "registryDependencies": ["card", "input", "label", "button"],
   "files": [
     {
       "path": "registry/m-plus/blocks/login/page.tsx",

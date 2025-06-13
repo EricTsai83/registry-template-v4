@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { ChevronRight } from "lucide-react";
+import * as React from "react";
 
 import { SearchForm } from "@/components/search-form";
 import { StyleSwitcher } from "@/components/style-switcher";

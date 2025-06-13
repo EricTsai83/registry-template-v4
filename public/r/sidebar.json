@@ -4,12 +4,7 @@
   "type": "registry:component",
   "title": "Sidebar",
   "description": "A sidebar component.",
-  "registryDependencies": [
-    "input",
-    "button",
-    "badge",
-    "avatar"
-  ],
+  "registryDependencies": ["input", "button", "badge", "avatar"],
   "files": [
     {
       "path": "registry/m-plus/blocks/sidebar/page.tsx",

@@ -1,4 +1,5 @@
 import { LiquidGlassCard } from "@/components/liquid-glass-card";
+import { QuantumLight } from "@/components/quantum-light";
 import RainbowGlassButton from "@/components/rainbow-glass-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -89,6 +90,7 @@ export default function Page() {
 
   return (
     <>
+      <QuantumLight />
       <header>
         <h1>設計風格介紹</h1>
       </header>

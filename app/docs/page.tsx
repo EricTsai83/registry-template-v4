@@ -1,5 +1,4 @@
 import { LiquidGlassCard } from "@/components/liquid-glass-card";
-import { QuantumLight } from "@/components/quantum-light";
 import RainbowGlassButton from "@/components/rainbow-glass-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,330 +9,373 @@ import {
   Bot,
   Brain,
   ChevronRight,
+  Code2,
   Copy,
   Layers,
+  MessageCircle,
   Network,
+  Palette,
   Sparkles,
-  Star,
   Wand2,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
 
 export default function Page() {
-  const styles: DesignStyle[] = [
+  const componentLibraries: ComponentLibrary[] = [
     {
       id: "basic",
-      name: "Glass Basic",
+      name: "Basic UI",
+      tagline: "簡潔優雅的基礎組件系統",
       description:
-        "採用 Glassmorphism 設計語言的智能基礎組件系統。透過模糊玻璃效果與漸層背景，創造層次豐富的視覺體驗和直覺化的用戶介面。",
+        "專為現代 Web 應用設計的輕量級組件庫。提供完整的基礎 UI 組件，採用簡潔的設計語言和一致的視覺風格，讓開發者能快速構建美觀且功能完整的用戶界面。",
       href: "/docs/basic",
-      icon: <Brain className="h-6 w-6" />,
-      badge: "玻璃風格",
+      icon: <Brain className="h-8 w-8" />,
+      primaryColor: "blue",
+      badge: "基礎組件",
       badgeVariant: "secondary",
       features: [
-        { name: "模糊玻璃表單", description: "透明漸層背景" },
-        { name: "懸浮按鈕", description: "玻璃材質效果" },
-        { name: "毛玻璃卡片", description: "多層次背景" },
-        { name: "流體佈局", description: "動態模糊效果" },
+        { name: "表單組件", description: "輸入框、選擇器、按鈕等" },
+        { name: "佈局系統", description: "網格、容器、間距控制" },
+        { name: "導航組件", description: "選單、麵包屑、分頁" },
+        { name: "反饋組件", description: "通知、載入、進度條" },
       ],
-      aiFeatures: ["智能透明度", "自適應模糊", "動態玻璃效果"],
-      preview: <GlassmorphismPreview variant={1} />,
-      stats: {
-        components: 28,
-        templates: 10,
-        aiEnhanced: true,
-      },
+      preview: <BasicUIPreview />,
     },
     {
       id: "mplus",
-      name: "M+ Crystal",
+      name: "M+ Messenger",
+      tagline: "專為通訊應用打造的組件庫",
       description:
-        "結合水晶般透明質感的新世代通訊組件庫。運用多層次玻璃效果與光線折射原理，打造如夢似幻的沉浸式用戶體驗界面。",
+        "專門為即時通訊和社交應用設計的高級組件庫。包含聊天界面、用戶管理、媒體分享等專業組件，採用現代化的設計風格和流暢的動畫效果，為用戶提供卓越的通訊體驗。",
       href: "/docs/mplus",
-      icon: <Network className="h-6 w-6" />,
-      badge: "水晶風格",
+      icon: <MessageCircle className="h-8 w-8" />,
+      primaryColor: "purple",
+      badge: "通訊專用",
       badgeVariant: "default",
       features: [
-        { name: "水晶聊天泡泡", description: "光線折射效果" },
-        { name: "透明認證", description: "玻璃化登入" },
-        { name: "漂浮側欄", description: "多層次模糊" },
-        { name: "發光標題", description: "霓虹玻璃質感" },
+        { name: "聊天組件", description: "訊息氣泡、輸入框、表情符號" },
+        { name: "用戶界面", description: "聯絡人列表、個人資料、狀態" },
+        { name: "媒體組件", description: "圖片預覽、檔案分享、語音" },
+        { name: "通知系統", description: "推送通知、聲音提示、徽章" },
       ],
-      aiFeatures: ["光線追蹤", "材質渲染", "動態反射", "智能透明"],
-      preview: <GlassmorphismPreview variant={2} />,
-      stats: {
-        components: 42,
-        templates: 15,
-        aiEnhanced: true,
-      },
-    },
-  ];
-
-  const glassStats = [
-    {
-      icon: <Zap className="h-8 w-8" />,
-      value: "60+",
-      label: "玻璃組件",
-    },
-    {
-      icon: <Star className="h-8 w-8" />,
-      value: "100%",
-      label: "透明度控制",
-    },
-    {
-      icon: <Layers className="h-8 w-8" />,
-      value: "∞",
-      label: "層次效果",
+      preview: <MessengerUIPreview />,
     },
   ];
 
   return (
     <>
-      <QuantumLight />
-      <header>
-        <h1>設計風格介紹</h1>
-      </header>
-      <RainbowGlassButton>
-        Browse Templates
-        <ChevronRight className="ml-1 size-4 shrink-0 transition-all duration-300 ease-out group-hover:translate-x-1" />
-      </RainbowGlassButton>
+      {/* Hero Section */}
+      <div className="relative overflow-hidden">
+        {/* Subtle Background */}
+        <div className="absolute inset-0">
+          <div className="from-muted/30 to-background absolute inset-0 bg-gradient-to-b" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.01)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] bg-[size:4rem_4rem] dark:bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)]" />
+        </div>
 
-      <div className="flex flex-1 flex-col gap-8 px-8">
-        {/* Glass Hero Section */}
-        <LiquidGlassCard>
-          <div className="mb-6 flex items-center gap-3">
-            <div className="bg-muted rounded-xl border p-2">
-              <Wand2 className="text-primary h-6 w-6" />
+        <div className="relative px-8 py-24">
+          <div className="mx-auto max-w-4xl">
+            {/* Top Badge */}
+            <div className="mb-8 flex justify-center">
+              <Badge variant="outline" className="px-4 py-2">
+                <Sparkles className="mr-2 h-4 w-4" />
+                兩大元件庫系統
+              </Badge>
             </div>
-            <Badge variant="outline">
-              <Sparkles className="mr-1 h-3 w-3" />
-              Glassmorphism 設計系統
-            </Badge>
-          </div>
 
-          <h1 className="text-foreground mb-6 text-4xl font-bold">
-            體驗玻璃質感設計
-          </h1>
-          <p className="text-muted-foreground max-w-3xl text-lg leading-relaxed">
-            探索結合模糊玻璃效果與現代設計美學的下一代組件系統。
-            每個元素都採用透明度控制與背景模糊技術，創造出夢幻般的視覺層次。
-          </p>
-        </LiquidGlassCard>
+            {/* Main Heading */}
+            <div className="mb-12 text-center">
+              <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-6xl">
+                選擇適合你的
+                <br />
+                <span className="text-primary">元件庫</span>
+              </h1>
 
-        {/* Glass Stats */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {glassStats.map((stat, index) => (
-            <LiquidGlassCard key={index}>
-              <div className="bg-primary/10 mb-4 inline-flex rounded-2xl p-3">
-                <div className="text-primary">{stat.icon}</div>
-              </div>
-              <div className="text-foreground mb-1 text-3xl font-bold">
-                {stat.value}
-              </div>
-              <div className="text-muted-foreground text-sm">{stat.label}</div>
-            </LiquidGlassCard>
-          ))}
-        </div>
-
-        <Separator />
-
-        {/* Glass Style Cards */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {styles.map((style) => (
-            <LiquidGlassCard key={style.id}>
-              <div className="mb-6 flex items-start justify-between">
-                <div className="flex items-center gap-4">
-                  <LiquidGlassCard>
-                    <div className="text-primary">{style.icon}</div>
-                  </LiquidGlassCard>
-                  <div>
-                    <h3 className="text-foreground mb-2 text-2xl font-bold">
-                      {style.name}
-                    </h3>
-                    <Badge variant={style.badgeVariant}>{style.badge}</Badge>
-                  </div>
-                </div>
-              </div>
-
-              {/* Glass Preview */}
-              <LiquidGlassCard>{style.preview}</LiquidGlassCard>
-
-              <p className="text-muted-foreground mb-6 text-base leading-relaxed">
-                {style.description}
+              <p className="text-muted-foreground mx-auto max-w-2xl text-xl leading-relaxed">
+                我們提供兩套專業的元件庫：Basic UI 適合通用應用開發，M+
+                Messenger 專為通訊應用設計。
+                每套都經過精心設計，確保最佳的開發體驗。
               </p>
+            </div>
 
-              <div className="space-y-6">
-                {/* Component Stats */}
-                <LiquidGlassCard>
-                  <div className="text-center">
-                    <div className="text-foreground text-xl font-bold">
-                      {style.stats.components}
-                    </div>
-                    <div className="text-muted-foreground text-xs">組件</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-foreground text-xl font-bold">
-                      {style.stats.templates}
-                    </div>
-                    <div className="text-muted-foreground text-xs">模板</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-primary text-xl font-bold">AI</div>
-                    <div className="text-muted-foreground text-xs">增強</div>
-                  </div>
-                </LiquidGlassCard>
+            {/* Feature Highlights */}
+            <div className="mx-auto mb-12 grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-3">
+              <div className="text-center">
+                <div className="bg-muted/50 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                  <Code2 className="text-foreground h-6 w-6" />
+                </div>
+                <h3 className="mb-2 font-semibold">現代化設計</h3>
+                <p className="text-muted-foreground text-sm">
+                  採用最新設計趨勢與最佳實踐
+                </p>
+              </div>
 
-                {/* AI Features */}
-                <div>
-                  <h4 className="text-primary mb-3 flex items-center gap-2 text-sm font-semibold">
-                    <Bot className="h-4 w-4" />
-                    玻璃 AI 特效
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {style.aiFeatures.map((feature) => (
-                      <Badge
-                        key={feature}
-                        variant="outline"
-                        className="text-xs"
+              <div className="text-center">
+                <div className="bg-muted/50 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                  <Zap className="text-foreground h-6 w-6" />
+                </div>
+                <h3 className="mb-2 font-semibold">高效開發</h3>
+                <p className="text-muted-foreground text-sm">
+                  快速構建美觀且功能完整的應用
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="bg-muted/50 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+                  <Palette className="text-foreground h-6 w-6" />
+                </div>
+                <h3 className="mb-2 font-semibold">客製化彈性</h3>
+                <p className="text-muted-foreground text-sm">
+                  靈活的主題系統與組件配置
+                </p>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Button size="lg" className="px-8">
+                開始探索
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </Button>
+
+              <Button variant="outline" size="lg" className="px-8">
+                <Palette className="mr-2 h-5 w-5" />
+                查看設計系統
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="px-8 py-12">
+        <Separator className="mb-16" />
+
+        {/* Component Libraries */}
+        <div className="space-y-16">
+          {componentLibraries.map((library, index) => (
+            <div key={library.id} className="relative">
+              <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
+                {/* Content */}
+                <div className="flex flex-col justify-center">
+                  <LiquidGlassCard
+                    className="h-full"
+                    glassColor={library.primaryColor}
+                  >
+                    <div className="mb-6 flex items-center gap-4">
+                      <div
+                        className={cn(
+                          "rounded-2xl p-3",
+                          library.primaryColor === "blue"
+                            ? "bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400"
+                            : "bg-purple-100 text-purple-600 dark:bg-purple-950 dark:text-purple-400",
+                        )}
                       >
-                        {feature}
+                        {library.icon}
+                      </div>
+                      <div>
+                        <h2 className="text-foreground text-3xl font-bold">
+                          {library.name}
+                        </h2>
+                        <p className="text-muted-foreground">
+                          {library.tagline}
+                        </p>
+                      </div>
+                      <Badge variant={library.badgeVariant} className="ml-auto">
+                        {library.badge}
                       </Badge>
-                    ))}
-                  </div>
+                    </div>
+
+                    <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                      {library.description}
+                    </p>
+
+                    {/* Features Grid */}
+                    <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      {library.features.map((feature) => (
+                        <div
+                          key={feature.name}
+                          className="bg-background/50 rounded-lg border p-4"
+                        >
+                          <h4 className="text-foreground mb-1 font-semibold">
+                            {feature.name}
+                          </h4>
+                          <p className="text-muted-foreground text-sm">
+                            {feature.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA */}
+                    <div className="flex gap-3">
+                      <Link href={library.href} className="flex-1">
+                        <Button className="w-full" size="lg">
+                          <Brain className="mr-2 h-4 w-4" />
+                          探索 {library.name}
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                      <Button variant="outline" size="lg">
+                        <Bot className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </LiquidGlassCard>
                 </div>
 
-                <Separator />
-
-                {/* CTA Button */}
-                <Link href={style.href}>
-                  <Button className="group/btn w-full" size="lg">
-                    <span className="flex items-center justify-center gap-3">
-                      <Brain className="h-4 w-4" />
-                      探索玻璃組件
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </span>
-                  </Button>
-                </Link>
+                {/* Preview */}
+                <div className="flex items-center justify-center">
+                  <LiquidGlassCard
+                    className="w-full"
+                    glassColor={library.primaryColor}
+                  >
+                    {library.preview}
+                  </LiquidGlassCard>
+                </div>
               </div>
-            </LiquidGlassCard>
+            </div>
           ))}
         </div>
-
-        {/* Bottom Glass CTA */}
-        <LiquidGlassCard>
-          <div className="mb-4">
-            <LiquidGlassCard>
-              <Wand2 className="text-primary h-8 w-8" />
-            </LiquidGlassCard>
-          </div>
-          <h3 className="text-foreground mb-2 text-2xl font-bold">
-            需要客製化玻璃效果？
-          </h3>
-          <p className="text-muted-foreground mx-auto mb-6 max-w-2xl">
-            我們的設計團隊專精於 Glassmorphism
-            風格，可以為您打造獨特的透明玻璃介面，
-            結合最新的模糊效果技術與您的品牌視覺。
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button variant="outline">
-              <Bot className="mr-2 h-4 w-4" />
-              玻璃設計諮詢
-            </Button>
-            <Button>
-              <Sparkles className="mr-2 h-4 w-4" />
-              開始體驗
-            </Button>
-          </div>
-        </LiquidGlassCard>
       </div>
     </>
   );
 }
 
-interface StyleFeature {
-  name: string;
-  description: string;
-}
-
-interface DesignStyle {
+interface ComponentLibrary {
   id: string;
   name: string;
+  tagline: string;
   description: string;
   href: string;
   icon: React.ReactNode;
+  primaryColor: "blue" | "purple";
   badge: string;
   badgeVariant: "default" | "secondary" | "destructive" | "outline";
-  features: StyleFeature[];
-  aiFeatures: string[];
+  features: Array<{
+    name: string;
+    description: string;
+  }>;
   preview: React.ReactNode;
-  stats: {
-    components: number;
-    templates: number;
-    aiEnhanced: boolean;
-  };
 }
 
-// Glassmorphism Preview Component
-const GlassmorphismPreview: React.FC<{
-  className?: string;
-  variant?: 1 | 2;
-}> = ({ className = "", variant = 1 }) => {
-  if (variant === 1) {
-    return (
-      <div className={cn("space-y-3 p-4", className)}>
-        <LiquidGlassCard>
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-sm font-medium">Referral Code</h3>
-              <div className="mt-1 flex items-center gap-2">
-                <code className="bg-muted/50 rounded px-2 py-1 text-xs">
-                  7D45564JK355
-                </code>
-                <Button size="sm" variant="ghost" className="h-6 w-6 p-0">
-                  <Copy className="h-3 w-3" />
-                </Button>
-              </div>
-            </div>
-            <div className="text-right">
-              <p className="text-muted-foreground text-xs">Users</p>
-              <p className="text-lg font-semibold">4</p>
-            </div>
-          </div>
-        </LiquidGlassCard>
-        <LiquidGlassCard>
-          <p className="text-muted-foreground text-xs">Rewards</p>
-          <p className="text-sm">
-            <span className="text-primary font-medium">20%</span> Fees +{" "}
-            <span className="text-primary font-medium">10%</span> Points
-          </p>
-        </LiquidGlassCard>
-      </div>
-    );
-  }
-
+// Basic UI Preview Component
+const BasicUIPreview: React.FC<{ className?: string }> = ({
+  className = "",
+}) => {
   return (
-    <div className={cn("space-y-2 p-4", className)}>
-      <LiquidGlassCard>
-        <div className="flex items-center gap-2">
-          <div className="bg-primary/20 flex h-8 w-8 items-center justify-center rounded-full">
-            <Network className="text-primary h-4 w-4" />
+    <div className={cn("space-y-4 p-6", className)}>
+      <div className="flex items-center justify-between">
+        <h3 className="text-lg font-semibold">Dashboard</h3>
+        <Button size="sm">
+          <Layers className="mr-2 h-4 w-4" />
+          New
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-3 gap-3">
+        <div className="bg-background rounded-lg border p-3 text-center">
+          <div className="text-2xl font-bold text-blue-600">24</div>
+          <div className="text-muted-foreground text-xs">Projects</div>
+        </div>
+        <div className="bg-background rounded-lg border p-3 text-center">
+          <div className="text-2xl font-bold text-green-600">12</div>
+          <div className="text-muted-foreground text-xs">Completed</div>
+        </div>
+        <div className="bg-background rounded-lg border p-3 text-center">
+          <div className="text-2xl font-bold text-orange-600">8</div>
+          <div className="text-muted-foreground text-xs">Pending</div>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <div className="bg-background flex items-center justify-between rounded-lg border p-3">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-8 rounded-full bg-blue-100 dark:bg-blue-950" />
+            <div>
+              <div className="text-sm font-medium">Website Redesign</div>
+              <div className="text-muted-foreground text-xs">Due tomorrow</div>
+            </div>
           </div>
-          <div>
-            <p className="text-sm font-medium">Crystal Chat</p>
-            <p className="text-muted-foreground text-xs">Online</p>
+          <Badge variant="secondary">In Progress</Badge>
+        </div>
+
+        <div className="bg-background flex items-center justify-between rounded-lg border p-3">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-8 rounded-full bg-green-100 dark:bg-green-950" />
+            <div>
+              <div className="text-sm font-medium">Mobile App</div>
+              <div className="text-muted-foreground text-xs">Completed</div>
+            </div>
+          </div>
+          <Badge variant="outline">Done</Badge>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Messenger UI Preview Component
+const MessengerUIPreview: React.FC<{ className?: string }> = ({
+  className = "",
+}) => {
+  return (
+    <div className={cn("space-y-4 p-6", className)}>
+      <div className="flex items-center gap-3 border-b pb-3">
+        <div className="relative">
+          <div className="h-10 w-10 rounded-full bg-gradient-to-r from-purple-400 to-pink-400" />
+          <div className="border-background absolute -right-1 -bottom-1 h-4 w-4 rounded-full border-2 bg-green-500" />
+        </div>
+        <div>
+          <div className="font-semibold">Sarah Chen</div>
+          <div className="text-muted-foreground text-xs">Active now</div>
+        </div>
+        <div className="ml-auto flex gap-2">
+          <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+            <MessageCircle className="h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        <div className="flex justify-start">
+          <div className="bg-muted max-w-[80%] rounded-2xl p-3">
+            <p className="text-sm">Hey! How's the project going? 🚀</p>
+            <div className="text-muted-foreground mt-1 text-xs">2:30 PM</div>
           </div>
         </div>
-      </LiquidGlassCard>
-      <LiquidGlassCard>
-        <div className="flex items-center gap-2">
-          <div className="bg-primary h-2 w-2 rounded-full"></div>
-          <p className="text-xs">Message with glass effect</p>
+
+        <div className="flex justify-end">
+          <div className="bg-primary text-primary-foreground max-w-[80%] rounded-2xl p-3">
+            <p className="text-sm">Great! Just finished the UI components</p>
+            <div className="mt-1 text-xs opacity-70">2:32 PM</div>
+          </div>
         </div>
-      </LiquidGlassCard>
-      <LiquidGlassCard>
-        <div className="from-primary/50 h-1 rounded bg-gradient-to-r to-transparent"></div>
-      </LiquidGlassCard>
+
+        <div className="flex justify-start">
+          <div className="bg-muted max-w-[80%] rounded-2xl p-3">
+            <div className="bg-background mb-2 rounded-lg p-2">
+              <div className="flex items-center gap-2">
+                <Layers className="h-4 w-4 text-blue-500" />
+                <span className="text-sm">components.zip</span>
+              </div>
+              <div className="text-muted-foreground text-xs">2.4 MB</div>
+            </div>
+            <p className="text-sm">Here are the files! 📁</p>
+            <div className="text-muted-foreground mt-1 text-xs">2:35 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-background flex items-center gap-2 rounded-full border p-2">
+        <Button size="sm" variant="ghost" className="h-8 w-8 rounded-full p-0">
+          <Copy className="h-4 w-4" />
+        </Button>
+        <div className="text-muted-foreground flex-1 text-sm">
+          Type a message...
+        </div>
+        <Button size="sm" className="h-8 w-8 rounded-full p-0">
+          <ArrowRight className="h-4 w-4" />
+        </Button>
+      </div>
     </div>
   );
 };

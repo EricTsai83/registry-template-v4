@@ -4,7 +4,6 @@ import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ExternalLink, Laptop, LucideIcon, User } from "lucide-react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -45,7 +44,7 @@ export function ComponentIntroCards() {
         <Header />
         <PoweredBy />
         <TenantGrid tenants={tenants} />
-        <Background />
+        <TextHoverEffectBackground />
       </div>
 
       <div className="mt-20">
@@ -92,15 +91,13 @@ function PoweredBy() {
   );
 }
 
-function Background() {
-  const { theme } = useTheme();
-
-  if (theme !== "dark") return null;
+function TextHoverEffectBackground() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
+      className="hidden dark:block"
     >
       <motion.div
         initial={{ opacity: 0 }}

@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "motion/react";
 import React, { useRef, useState } from "react";
 
@@ -19,13 +20,10 @@ export const TextHoverEffect = ({
   className?: string;
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
 
   const handleMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
-    setCursor({ x: e.clientX, y: e.clientY });
-
     if (svgRef.current) {
       const svgRect = svgRef.current.getBoundingClientRect();
       const cxPercentage = ((e.clientX - svgRect.left) / svgRect.width) * 100;

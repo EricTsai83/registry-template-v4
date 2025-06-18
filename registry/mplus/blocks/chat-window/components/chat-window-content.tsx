@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { MplusMeetIcon } from "@/registry/m-plus/blocks/chat-window/components/icons";
+import { MplusMeetIcon } from "@/registry/mplus/blocks/chat-window/components/icons";
 import { Calendar, Paperclip, Smile, Users, Video, X } from "lucide-react";
 
 const messages = [

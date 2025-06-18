@@ -4,10 +4,10 @@ import { ExampleForm } from "@/registry/new-york/blocks/example-form/example-for
 import { ExampleCard } from "@/registry/new-york/blocks/example-with-css/example-card";
 import { HelloWorld } from "@/registry/new-york/blocks/hello-world/hello-world";
 // For M Plus
-import ChatWindow from "@/registry/m-plus/blocks/chat-window/page";
-import Header from "@/registry/m-plus/blocks/header/page";
-import Login from "@/registry/m-plus/blocks/login/page";
-import ChatList from "@/registry/m-plus/blocks/sidebar/page";
+import ChatWindow from "@/registry/mplus/blocks/chat-window/page";
+import Header from "@/registry/mplus/blocks/header/page";
+import Login from "@/registry/mplus/blocks/login/page";
+import ChatList from "@/registry/mplus/blocks/sidebar/page";
 
 // 新增 RegistryBlock 組件
 function RegistryBlock({

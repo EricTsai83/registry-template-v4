@@ -6,7 +6,7 @@ import {
   FlagIcon,
   Icons,
   PinIcon,
-} from "@/registry/m-plus/blocks/sidebar/components/icons";
+} from "@/registry/mplus/blocks/sidebar/components/icons";
 import { Edit, Search, X } from "lucide-react";
 
 const chatData = [

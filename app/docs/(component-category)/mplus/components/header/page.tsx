@@ -1,10 +1,14 @@
-export default function HeaderPage() {
+import { ContentHeader } from "@/components/content-header";
+import { RegistryBlock } from "@/components/registry-block";
+import HeaderBlock from "@/registry/mplus/blocks/header/page";
+
+export default function Header() {
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="mb-6 text-3xl font-bold">Header 元件</h1>
-      <div className="prose max-w-none">
-        <p>這是 Header 元件的文檔頁面。</p>
-      </div>
-    </div>
+    <>
+      <ContentHeader title="Header 元件" />
+      <RegistryBlock title="M+ 頁首區塊" blockName="header">
+        <HeaderBlock />
+      </RegistryBlock>
+    </>
   );
 }

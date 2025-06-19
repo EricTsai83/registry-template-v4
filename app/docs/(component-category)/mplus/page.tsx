@@ -6,25 +6,25 @@ const mplusComponents = [
     name: "login",
     title: "Login",
     description: "A login block.",
-    href: "/docs/(component)/mplus/login",
+    href: "/docs/mplus/components/login",
   },
   {
     name: "sidebar",
     title: "Sidebar",
     description: "A sidebar component.",
-    href: "/docs/(component)/mplus/sidebar",
+    href: "/docs/mplus/components/sidebar",
   },
   {
     name: "chat-window",
     title: "Chat Window",
     description: "A chat window component.",
-    href: "/docs/(component)/mplus/chat-window",
+    href: "/docs/mplus/components/chat-window",
   },
   {
     name: "header",
     title: "Header",
     description: "A header component for M Plus applications.",
-    href: "/docs/(component)/mplus/header",
+    href: "/docs/mplus/components/header",
   },
 ];
 

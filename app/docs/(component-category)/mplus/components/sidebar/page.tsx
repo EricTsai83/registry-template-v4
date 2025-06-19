@@ -1,10 +1,14 @@
+import { ContentHeader } from "@/components/content-header";
+import { RegistryBlock } from "@/components/registry-block";
+import Sidebar from "@/registry/mplus/blocks/sidebar/page";
+
 export default function SidebarPage() {
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="mb-6 text-3xl font-bold">Sidebar 元件</h1>
-      <div className="prose max-w-none">
-        <p>這是 Sidebar 元件的文檔頁面。</p>
-      </div>
-    </div>
+    <>
+      <ContentHeader title="Sidebar 元件" />
+      <RegistryBlock title="M+ 側邊欄" blockName="sidebar">
+        <Sidebar />
+      </RegistryBlock>
+    </>
   );
 }

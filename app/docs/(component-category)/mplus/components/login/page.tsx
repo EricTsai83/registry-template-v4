@@ -1,10 +1,14 @@
-export default function LoginPage() {
+import { ContentHeader } from "@/components/content-header";
+import { RegistryBlock } from "@/components/registry-block";
+import LoginPage from "@/registry/mplus/blocks/login/page";
+
+export default function Login() {
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="mb-6 text-3xl font-bold">Login 元件</h1>
-      <div className="prose max-w-none">
-        <p>這是 Login 元件的文檔頁面。</p>
-      </div>
-    </div>
+    <>
+      <ContentHeader title="Login 區塊" />
+      <RegistryBlock title="M+ 登入區塊" blockName="login">
+        <LoginPage />
+      </RegistryBlock>
+    </>
   );
 }

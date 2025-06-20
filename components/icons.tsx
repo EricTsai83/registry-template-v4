@@ -13,14 +13,28 @@ export const Icons = {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* 誠字簡化線條 */}
-      <path
-        d="M96 96h64M96 128h64M96 160h32"
+      {/* shadcn logo */}
+      <line
+        x1="192"
+        y1="112"
+        x2="144"
+        y2="160"
         fill="none"
         stroke="currentColor"
-        strokeWidth="16"
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth="16"
+      />
+      <line
+        x1="192"
+        y1="64"
+        x2="96"
+        y2="160"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="16"
       />
     </svg>
   ),

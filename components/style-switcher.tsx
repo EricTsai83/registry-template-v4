@@ -1,8 +1,6 @@
 "use client";
 
-import { Check, ChevronsUpDown, GalleryVerticalEnd } from "lucide-react";
-import { useState } from "react";
-
+import { Icons } from "@/components/icons";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +12,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { useState } from "react";
 
 export function StyleSwitcher({
   styles,
@@ -41,7 +41,7 @@ export function StyleSwitcher({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                <GalleryVerticalEnd className="size-4" />
+                <Icons.logo className="h-4 w-4" />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
                 <span className="font-medium">Documentation</span>
@@ -59,7 +59,7 @@ export function StyleSwitcher({
                 key={style}
                 onSelect={() => handleStyleChange(style)}
               >
-                {style}{" "}
+                {style}
                 {style === selectedStyle && <Check className="ml-auto" />}
               </DropdownMenuItem>
             ))}

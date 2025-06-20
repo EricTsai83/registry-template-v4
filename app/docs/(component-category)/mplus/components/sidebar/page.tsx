@@ -5,8 +5,8 @@ import Sidebar from "@/registry/mplus/blocks/sidebar/page";
 export default function SidebarPage() {
   return (
     <>
-      <ContentHeader title="Sidebar 元件" />
-      <RegistryBlock title="M+ 側邊欄" blockName="sidebar">
+      <ContentHeader>側邊欄</ContentHeader>
+      <RegistryBlock author="作者: EricTsai" blockName="sidebar">
         <Sidebar />
       </RegistryBlock>
     </>

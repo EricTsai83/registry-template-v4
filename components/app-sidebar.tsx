@@ -35,6 +35,10 @@ const data = {
           title: "介紹",
           url: "/doc",
         },
+        {
+          title: "安裝",
+          url: "/doc",
+        },
       ],
     },
     {

@@ -5,8 +5,8 @@ import LoginPage from "@/registry/mplus/blocks/login/page";
 export default function Login() {
   return (
     <>
-      <ContentHeader title="Login 區塊" />
-      <RegistryBlock title="M+ 登入區塊" blockName="login">
+      <ContentHeader>登入</ContentHeader>
+      <RegistryBlock author="作者: EricTsai" blockName="login">
         <LoginPage />
       </RegistryBlock>
     </>

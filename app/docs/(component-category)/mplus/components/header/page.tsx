@@ -5,8 +5,8 @@ import HeaderBlock from "@/registry/mplus/blocks/header/page";
 export default function Header() {
   return (
     <>
-      <ContentHeader title="Header 元件" />
-      <RegistryBlock title="M+ 頁首區塊" blockName="header">
+      <ContentHeader>頁首</ContentHeader>
+      <RegistryBlock author="作者: EricTsai" blockName="header">
         <HeaderBlock />
       </RegistryBlock>
     </>

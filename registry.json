@@ -11,12 +11,12 @@
       "registryDependencies": ["card", "input", "label", "button"],
       "files": [
         {
-          "path": "registry/m-plus/blocks/login/page.tsx",
+          "path": "registry/mplus/blocks/login/page.tsx",
           "type": "registry:page",
           "target": "app/login/page.tsx"
         },
         {
-          "path": "registry/m-plus/blocks/login/components/login-form.tsx",
+          "path": "registry/mplus/blocks/login/components/login-form.tsx",
           "type": "registry:component"
         }
       ]
@@ -29,16 +29,16 @@
       "registryDependencies": ["input", "button", "badge", "avatar"],
       "files": [
         {
-          "path": "registry/m-plus/blocks/sidebar/page.tsx",
+          "path": "registry/mplus/blocks/sidebar/page.tsx",
           "type": "registry:page",
           "target": "app/sidebar/page.tsx"
         },
         {
-          "path": "registry/m-plus/blocks/sidebar/components/chat-list.tsx",
+          "path": "registry/mplus/blocks/sidebar/components/chat-list.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/m-plus/blocks/sidebar/components/icons.tsx",
+          "path": "registry/mplus/blocks/sidebar/components/icons.tsx",
           "type": "registry:component"
         }
       ]
@@ -58,16 +58,16 @@
       ],
       "files": [
         {
-          "path": "registry/m-plus/blocks/chat-window/page.tsx",
+          "path": "registry/mplus/blocks/chat-window/page.tsx",
           "type": "registry:page",
           "target": "app/chat-window/page.tsx"
         },
         {
-          "path": "registry/m-plus/blocks/chat-window/components/chat-window-content.tsx",
+          "path": "registry/mplus/blocks/chat-window/components/chat-window-content.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/m-plus/blocks/chat-window/components/icons.tsx",
+          "path": "registry/mplus/blocks/chat-window/components/icons.tsx",
           "type": "registry:component"
         }
       ]

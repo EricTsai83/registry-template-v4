@@ -135,22 +135,22 @@ export const styleConfigs: Record<string, StyleConfig> = {
         title: "元件庫",
         items: [
           {
-            title: "chat-window",
+            title: "聊天視窗",
             href: "/docs/mplus/components/chat-window",
             items: [],
           },
           {
-            title: "header",
+            title: "頁首",
             href: "/docs/mplus/components/header",
             items: [],
           },
           {
-            title: "login",
+            title: "登入",
             href: "/docs/mplus/components/login",
             items: [],
           },
           {
-            title: "sidebar",
+            title: "側邊欄",
             href: "/docs/mplus/components/sidebar",
             items: [],
           },

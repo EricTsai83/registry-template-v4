@@ -109,7 +109,7 @@ export default function ChatList() {
       <Header user={user} />
       <Navigation />
       <SearchBar />
-      <div className="flex-1 divide-y divide-gray-100 overflow-y-auto">
+      <div className="flex-1 divide-y divide-gray-100 overflow-y-auto [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:hover:bg-gray-400 [&::-webkit-scrollbar-track]:bg-transparent">
         {chatData.map((chat) => (
           <ChatItem key={chat.id} chat={chat} />
         ))}

@@ -15,7 +15,7 @@ export function RegistryBlock({
         <h2 className="text-muted-foreground text-sm sm:pl-3">{author}</h2>
         <OpenInV0Button name={blockName} className="w-fit" />
       </div>
-      <div className="relative flex min-h-[400px] items-center justify-center">
+      <div className="relative flex min-h-[400px] items-center justify-center overflow-x-auto">
         {children}
       </div>
     </div>

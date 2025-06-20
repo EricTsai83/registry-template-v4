@@ -1,6 +1,7 @@
 "use client";
 
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { styleUtils } from "@/config/styles";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ExternalLink, Laptop, LucideIcon, User } from "lucide-react";
@@ -20,22 +21,14 @@ type Tenant = {
   href: string;
 };
 
-const tenants: Tenant[] = [
-  {
-    name: "Basic UI",
-    iconName: "user",
-    description: "提供基礎的 UI 元件，最大化你的開發彈性。",
-    contributor: "EricTsai",
-    href: "/docs/basic",
-  },
-  {
-    name: "M+ Messenger",
-    iconName: "laptop",
-    description: "提供企業級的聊天功能的各種UI元件。",
-    contributor: "EricTsai",
-    href: "/docs/mplus",
-  },
-];
+// 使用統一的風格配置生成 tenants
+const tenants: Tenant[] = styleUtils.getAllStyles().map((style) => ({
+  name: style.label,
+  iconName: style.iconName || "user",
+  description: style.description || "",
+  contributor: style.contributor || "EricTsai",
+  href: style.defaultPath || `/docs/${style.name}`,
+}));
 
 export function ComponentIntroCards() {
   return (

@@ -50,7 +50,7 @@ export function StyleSwitcher({
                 <Icons.logo className="h-4 w-4" />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-medium">Documentation</span>
+                <span className="font-medium">twm/ui</span>
                 <span className="">
                   {styleConfigs[selectedStyle]?.label || selectedStyle}
                 </span>

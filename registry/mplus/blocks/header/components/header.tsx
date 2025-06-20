@@ -31,23 +31,25 @@ export default function Header() {
   };
 
   return (
-    <header className="flex h-12 w-full items-center bg-neutral-800 px-6 text-white">
+    <header className="flex h-12 w-full min-w-3xl items-center bg-neutral-800 px-6 text-white">
       {/* Logo 與標題 */}
-      <div className="mr-8 flex items-center">
+      <div className="mr-8 flex flex-shrink-0 items-center">
         <Image
-          src="/mplus-logo.webp" // 請將 logo 圖片放在 public 資料夾下
+          src="/mplus-logo.webp"
           alt="M+ Messenger"
           width={32}
           height={32}
           className="mr-2"
         />
-        <span className="text-base font-medium text-nowrap">M+ Messenger</span>
+        <span className="text-base font-medium whitespace-nowrap">
+          M+ Messenger
+        </span>
       </div>
       {/* 功能按鈕區 */}
-      <div className="flex flex-1 items-center gap-4">
+      <div className="flex flex-1 items-center gap-2 overflow-x-auto">
         <Button
           variant="ghost"
-          className="cursor-pointer text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-2"
+          className="flex-shrink-0 cursor-pointer text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-2"
         >
           開始聊天
         </Button>
@@ -56,7 +58,7 @@ export default function Header() {
           <PopoverTrigger asChild>
             <Button
               variant="ghost"
-              className="flex cursor-pointer items-center gap-1 text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-4"
+              className="flex flex-shrink-0 cursor-pointer items-center gap-1 text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-4"
             >
               設定
               <ChevronDown className="h-4 w-4" />
@@ -126,19 +128,19 @@ export default function Header() {
 
         <Button
           variant="ghost"
-          className="cursor-pointer text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-4"
+          className="flex-shrink-0 cursor-pointer text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-4"
         >
           意見反映
         </Button>
         <Button
           variant="ghost"
-          className="cursor-pointer text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-4"
+          className="flex-shrink-0 cursor-pointer text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-4"
         >
           常見問題Q&A
         </Button>
         <Button
           variant="ghost"
-          className="cursor-pointer text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-4"
+          className="flex-shrink-0 cursor-pointer text-white hover:bg-transparent hover:text-white hover:underline hover:underline-offset-4"
         >
           登出
         </Button>

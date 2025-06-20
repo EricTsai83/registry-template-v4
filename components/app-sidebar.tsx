@@ -1,6 +1,6 @@
 "use client";
 
-import { SearchForm } from "@/components/search-form";
+// import { SearchForm } from "@/components/search-form";
 import { StyleSwitcher } from "@/components/style-switcher";
 import {
   Collapsible,
@@ -20,10 +20,12 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { styleConfigs } from "@/config/docs";
+import { styleUtils, type ComponentStyle } from "@/config/styles";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { NavItems } from "./nav-items";
 
 const styles = Object.keys(styleConfigs);
 
@@ -31,32 +33,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const [currentStyle, setCurrentStyle] = useState(
-    getCurrentStyleFromPath(pathname),
+  const [currentStyle, setCurrentStyle] = useState<ComponentStyle>(
+    styleUtils.getStyleFromPath(pathname) || styleUtils.getDefaultStyle(),
   );
   const [navMain, setNavMain] = useState(styleConfigs[currentStyle].sidebarNav);
 
-  // 當路徑改變時更新 currentStyle 和 navMain
   useEffect(() => {
-    const newStyle = getCurrentStyleFromPath(pathname);
+    const newStyle =
+      styleUtils.getStyleFromPath(pathname) || styleUtils.getDefaultStyle();
     setCurrentStyle(newStyle);
     setNavMain(styleConfigs[newStyle].sidebarNav);
   }, [pathname]);
 
-  // 處理樣式變更並導航到對應的 URL
   const handleStyleChange = (newStyle: string) => {
-    const styleKey = newStyle as keyof typeof styleConfigs;
+    const styleKey = newStyle as ComponentStyle;
     setCurrentStyle(styleKey);
     setNavMain(styleConfigs[styleKey].sidebarNav);
 
-    // 根據新樣式決定要導航到哪個 URL
-    let targetUrl = "/docs";
-
-    if (styleKey === "mplus") {
-      targetUrl = "/docs/mplus";
-    } else if (styleKey === "basic") {
-      targetUrl = "/docs/basic";
-    }
+    const targetUrl = styleUtils.getStylePath(styleKey, "");
 
     // 如果當前路徑與目標路徑不同，則進行導航
     if (pathname !== targetUrl) {
@@ -100,9 +94,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           defaultStyle={currentStyle}
           onStyleChange={handleStyleChange}
         />
-        <SearchForm />
+        {/* <SearchForm /> */}
       </SidebarHeader>
       <SidebarContent className="gap-0">
+        <div className="md:hidden">
+          <NavItems />
+        </div>
+
         {/* We create a collapsible SidebarGroup for each parent. */}
         {navMain.map((item) => (
           <Collapsible
@@ -158,15 +156,4 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarRail />
     </Sidebar>
   );
-}
-
-// 根據 URL 自動設置 currentStyle
-function getCurrentStyleFromPath(pathname: string): keyof typeof styleConfigs {
-  if (pathname.includes("/docs/mplus")) {
-    return "mplus";
-  } else if (pathname.includes("/docs/basic")) {
-    return "basic";
-  }
-  // 預設值
-  return "basic";
 }

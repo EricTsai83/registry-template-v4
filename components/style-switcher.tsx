@@ -13,18 +13,24 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Check, ChevronsUpDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function StyleSwitcher({
   styles,
+  styleConfigs,
   defaultStyle,
   onStyleChange,
 }: {
   styles: string[];
+  styleConfigs: Record<string, { name: string; label: string }>;
   defaultStyle: string;
   onStyleChange?: (style: string) => void;
 }) {
   const [selectedStyle, setSelectedStyle] = useState(defaultStyle);
+
+  useEffect(() => {
+    setSelectedStyle(defaultStyle);
+  }, [defaultStyle]);
 
   const handleStyleChange = (style: string) => {
     setSelectedStyle(style);
@@ -45,7 +51,9 @@ export function StyleSwitcher({
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
                 <span className="font-medium">Documentation</span>
-                <span className="">{selectedStyle}</span>
+                <span className="">
+                  {styleConfigs[selectedStyle]?.label || selectedStyle}
+                </span>
               </div>
               <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
@@ -59,7 +67,7 @@ export function StyleSwitcher({
                 key={style}
                 onSelect={() => handleStyleChange(style)}
               >
-                {style}
+                {styleConfigs[style]?.label || style}
                 {style === selectedStyle && <Check className="ml-auto" />}
               </DropdownMenuItem>
             ))}

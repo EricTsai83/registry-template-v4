@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
+  ExternalLink,
   Eye,
   MessageSquare,
   PanelsLeftBottom,
@@ -122,7 +123,18 @@ function HeroSection() {
   return (
     <div className="space-y-6 text-center">
       <div className="mb-4 flex items-center justify-center gap-2">
-        <h1 className="text-4xl font-bold tracking-tight">M+ Messenger</h1>
+        <h1 className="flex items-center gap-2 text-4xl font-bold tracking-tight">
+          M+ Messenger
+          <Link
+            href="https://web.mplusapp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="前往 M+ Messenger 網頁版 (新分頁開啟)"
+            className="ml-1"
+          >
+            <ExternalLink className="hover:text-muted-foreground h-4 w-4" />
+          </Link>
+        </h1>
       </div>
       <p className="text-muted-foreground mx-auto max-w-3xl text-xl leading-relaxed">
         M+ 是一套簡潔現代的設計系統，專注於提升使用者體驗。

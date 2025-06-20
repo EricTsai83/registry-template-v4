@@ -19,112 +19,42 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { styleConfigs } from "@/config/docs";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type NavItem = {
-  title: string;
-  url: string;
-  isExternal?: boolean;
-};
-
-type NavGroup = {
-  title: string;
-  url: string;
-  items: NavItem[];
-};
-
-const data: {
-  styles: string[];
-  navMain: NavGroup[];
-} = {
-  styles: ["basic", "M+ Messenger"],
-  navMain: [
-    {
-      title: "開始使用",
-      url: "/docs",
-      items: [
-        {
-          title: "介紹",
-          url: "/docs/mplus",
-        },
-      ],
-    },
-    {
-      title: "元件庫",
-      url: "/docs/components",
-      items: [
-        {
-          title: "chat-window",
-          url: "/docs/mplus/components/chat-window",
-        },
-        {
-          title: "header",
-          url: "/docs/mplus/components/header",
-        },
-        {
-          title: "login",
-          url: "/docs/mplus/components/login",
-        },
-        {
-          title: "sidebar",
-          url: "/docs/mplus/components/sidebar",
-        },
-      ],
-    },
-    {
-      title: "社群",
-      url: "/docs/community",
-      items: [
-        {
-          title: "安裝",
-          url: "https://ui.shadcn.com/docs/installation",
-          isExternal: true,
-        },
-        {
-          title: "貢獻指南",
-          url: "/community/contribution-guide",
-        },
-      ],
-    },
-  ],
-};
+const styles = Object.keys(styleConfigs);
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
   const router = useRouter();
 
-  // 根據 URL 自動設置 currentStyle
-  const getCurrentStyleFromPath = () => {
-    if (pathname?.includes("/docs/mplus")) {
-      return "M+ Messenger";
-    } else if (pathname?.includes("/docs/basic")) {
-      return "basic";
-    }
-    // 預設值
-    return data.styles[0];
-  };
+  const [currentStyle, setCurrentStyle] = useState(
+    getCurrentStyleFromPath(pathname),
+  );
+  const [navMain, setNavMain] = useState(styleConfigs[currentStyle].sidebarNav);
 
-  const [currentStyle, setCurrentStyle] = useState(getCurrentStyleFromPath);
-
-  // 當路徑改變時更新 currentStyle
+  // 當路徑改變時更新 currentStyle 和 navMain
   useEffect(() => {
-    const newStyle = getCurrentStyleFromPath();
+    const newStyle = getCurrentStyleFromPath(pathname);
     setCurrentStyle(newStyle);
+    setNavMain(styleConfigs[newStyle].sidebarNav);
   }, [pathname]);
 
   // 處理樣式變更並導航到對應的 URL
   const handleStyleChange = (newStyle: string) => {
-    setCurrentStyle(newStyle);
+    const styleKey = newStyle as keyof typeof styleConfigs;
+    setCurrentStyle(styleKey);
+    setNavMain(styleConfigs[styleKey].sidebarNav);
 
     // 根據新樣式決定要導航到哪個 URL
     let targetUrl = "/docs";
 
-    if (newStyle === "M+ Messenger") {
+    if (styleKey === "mplus") {
       targetUrl = "/docs/mplus";
-    } else if (newStyle === "basic") {
+    } else if (styleKey === "basic") {
       targetUrl = "/docs/basic";
     }
 
@@ -135,8 +65,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   };
 
   // 檢查項目是否為當前活動狀態
-  const isItemActive = (itemUrl: string) => {
-    if (!pathname) return false;
+  const isItemActive = (itemUrl?: string) => {
+    if (!pathname || !itemUrl) return false;
 
     // 精確匹配
     if (pathname === itemUrl) return true;
@@ -165,7 +95,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader>
         <StyleSwitcher
-          styles={data.styles}
+          styles={styles}
+          styleConfigs={styleConfigs}
           defaultStyle={currentStyle}
           onStyleChange={handleStyleChange}
         />
@@ -173,7 +104,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent className="gap-0">
         {/* We create a collapsible SidebarGroup for each parent. */}
-        {data.navMain.map((item) => (
+        {navMain.map((item) => (
           <Collapsible
             key={item.title}
             title={item.title}
@@ -193,24 +124,26 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <CollapsibleContent>
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    {item.items.map((item) => (
-                      <SidebarMenuItem key={item.title}>
+                    {item.items.map((subItem) => (
+                      <SidebarMenuItem key={subItem.title}>
                         <SidebarMenuButton
                           asChild
-                          isActive={isItemActive(item.url)}
+                          isActive={isItemActive(subItem.href)}
                         >
-                          {item.isExternal ? (
+                          {subItem.external ? (
                             <a
-                              href={item.url}
+                              href={subItem.href}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex w-full items-center justify-between"
                             >
-                              <span>{item.title}</span>
+                              <span>{subItem.title}</span>
                               <ExternalLink className="ml-2 h-3 w-3 flex-shrink-0" />
                             </a>
                           ) : (
-                            <Link href={item.url}>{item.title}</Link>
+                            <Link href={subItem.href || ""}>
+                              {subItem.title}
+                            </Link>
                           )}
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -225,4 +158,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarRail />
     </Sidebar>
   );
+}
+
+// 根據 URL 自動設置 currentStyle
+function getCurrentStyleFromPath(pathname: string): keyof typeof styleConfigs {
+  if (pathname.includes("/docs/mplus")) {
+    return "mplus";
+  } else if (pathname.includes("/docs/basic")) {
+    return "basic";
+  }
+  // 預設值
+  return "basic";
 }

@@ -1,6 +1,5 @@
 "use client";
 
-// import { SearchForm } from "@/components/search-form";
 import { StyleSwitcher } from "@/components/style-switcher";
 import {
   Collapsible,
@@ -94,7 +93,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           defaultStyle={currentStyle}
           onStyleChange={handleStyleChange}
         />
-        {/* <SearchForm /> */}
       </SidebarHeader>
       <SidebarContent className="gap-0">
         <div className="md:hidden">
@@ -102,10 +100,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </div>
 
         {/* We create a collapsible SidebarGroup for each parent. */}
-        {navMain.map((item) => (
+        {navMain.map((navGroup, index) => (
           <Collapsible
-            key={item.title}
-            title={item.title}
+            key={index}
+            title={navGroup.name}
             defaultOpen
             className="group/collapsible"
           >
@@ -115,33 +113,31 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sm"
               >
                 <CollapsibleTrigger>
-                  {item.title}
+                  {navGroup.name}
                   <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
               <CollapsibleContent>
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    {item.items.map((subItem) => (
-                      <SidebarMenuItem key={subItem.title}>
+                    {navGroup.items.map((subItem) => (
+                      <SidebarMenuItem key={subItem.name}>
                         <SidebarMenuButton
                           asChild
                           isActive={isItemActive(subItem.href)}
                         >
                           {subItem.external ? (
-                            <a
+                            <Link
                               href={subItem.href}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex w-full items-center justify-between"
                             >
-                              <span>{subItem.title}</span>
+                              <span>{subItem.name}</span>
                               <ExternalLink className="ml-2 h-3 w-3 flex-shrink-0" />
-                            </a>
-                          ) : (
-                            <Link href={subItem.href || ""}>
-                              {subItem.title}
                             </Link>
+                          ) : (
+                            <Link href={subItem.href}>{subItem.name}</Link>
                           )}
                         </SidebarMenuButton>
                       </SidebarMenuItem>

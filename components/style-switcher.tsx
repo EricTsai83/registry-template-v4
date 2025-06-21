@@ -51,9 +51,7 @@ export function StyleSwitcher({
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
                 <span className="font-medium">twm/ui</span>
-                <span className="">
-                  {styleConfigs[selectedStyle]?.label || selectedStyle}
-                </span>
+                <span className="">{styleConfigs[selectedStyle].name}</span>
               </div>
               <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
@@ -67,7 +65,7 @@ export function StyleSwitcher({
                 key={style}
                 onSelect={() => handleStyleChange(style)}
               >
-                {styleConfigs[style]?.label || style}
+                {styleConfigs[style].name}
                 {style === selectedStyle && <Check className="ml-auto" />}
               </DropdownMenuItem>
             ))}

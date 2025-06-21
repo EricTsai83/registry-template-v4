@@ -4,8 +4,8 @@ export type ComponentStyle = (typeof COMPONENT_STYLES)[number];
 
 // 風格配置介面
 export interface StyleConfig {
-  name: ComponentStyle;
-  label: string;
+  name: string;
+  label: ComponentStyle;
   description?: string;
   defaultPath?: string;
   iconName?: "user" | "laptop";
@@ -15,16 +15,16 @@ export interface StyleConfig {
 // 統一的風格配置
 export const styleConfigs: Record<ComponentStyle, StyleConfig> = {
   basic: {
-    name: "basic",
-    label: "Basic UI",
+    name: "Basic UI",
+    label: "basic",
     description: "提供基礎的 UI 元件，最大化你的開發彈性。",
     defaultPath: "/docs/basic",
     iconName: "user",
     contributor: "EricTsai",
   },
   mplus: {
-    name: "mplus",
-    label: "M+ Messenger",
+    name: "M+ Messenger",
+    label: "mplus",
     description: "提供企業級的聊天功能的各種UI元件。",
     defaultPath: "/docs/mplus",
     iconName: "laptop",
@@ -70,7 +70,7 @@ export const styleUtils = {
 
 // 導航項目配置
 export const NAV_ITEMS = [
-  { label: "元件風格", href: "/docs", isStatic: true },
+  { label: "風格", href: "/docs", isStatic: true },
   { label: "元件", href: "components", isStatic: false },
   { label: "區塊", href: "blocks", isStatic: false },
   { label: "頁面", href: "pages", isStatic: false },

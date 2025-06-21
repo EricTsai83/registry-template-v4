@@ -15,4 +15,18 @@ export interface NavItemWithChildren extends NavItem {
 
 export interface MainNavItem extends NavItem {}
 
-export interface SidebarNavItem extends NavItemWithChildren {}
+export interface SidebarNavItem {
+  name: string;
+  items: SidebarNavItem[];
+  href: string; // href 現在為必填
+  label?: string;
+  external?: boolean;
+}
+
+export interface SidebarNav {
+  name: string;
+  items: SidebarNavItem[];
+  href?: string; // href 現在為必填
+  label?: string;
+  external?: boolean;
+}

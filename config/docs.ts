@@ -1,177 +1,113 @@
-import { MainNavItem, SidebarNavItem } from "@/types/nav";
+import { MainNavItem, SidebarNav } from "@/types/nav";
 
 export interface DocsConfig {
   mainNav: MainNavItem[];
-  sidebarNav: SidebarNavItem[];
-  chartsNav: SidebarNavItem[];
+  sidebarNav: SidebarNav[];
+  chartsNav: SidebarNav[];
 }
 
 // 新增樣式配置介面
 export interface StyleConfig {
   name: string;
   label: string;
-  sidebarNav: SidebarNavItem[];
+  sidebarNav: SidebarNav[];
 }
+
+// 共用的社群導航項目
+const getStartedNav: SidebarNav[] = [
+  {
+    name: "開始使用",
+    items: [
+      {
+        name: "介紹",
+        href: "/docs/mplus",
+        items: [],
+      },
+      {
+        name: "安裝",
+        href: "https://ui.shadcn.com/docs/installation",
+        external: true,
+        items: [],
+      },
+    ],
+  },
+];
+
+// 生成導航配置的工廠函數
+const createSidebarNav = (styleSpecificNav: SidebarNav[]): SidebarNav[] => {
+  return [...getStartedNav, ...styleSpecificNav];
+};
+
+// 各樣式特定的導航配置
+export const basicNav: SidebarNav[] = [
+  {
+    name: "開始使用",
+    items: [],
+  },
+  {
+    name: "元件",
+    items: [],
+  },
+  {
+    name: "區塊",
+    items: [],
+  },
+  {
+    name: "頁面",
+    items: [],
+  },
+];
+
+export const mplusNav: SidebarNav[] = [
+  {
+    name: "開始使用",
+    items: [],
+  },
+  {
+    name: "元件",
+    items: [],
+  },
+  {
+    name: "區塊",
+    items: [
+      {
+        name: "聊天視窗",
+        href: "/docs/mplus/blocks/chat-window",
+        items: [],
+      },
+      {
+        name: "頁首",
+        href: "/docs/mplus/blocks/header",
+        items: [],
+      },
+      {
+        name: "登入",
+        href: "/docs/mplus/blocks/login",
+        items: [],
+      },
+      {
+        name: "側邊欄",
+        href: "/docs/mplus/blocks/sidebar",
+        items: [],
+      },
+    ],
+  },
+  {
+    name: "頁面",
+    items: [],
+  },
+];
 
 // 統一的樣式配置管理
 export const styleConfigs: Record<string, StyleConfig> = {
   basic: {
-    name: "basic",
-    label: "Basic",
-    sidebarNav: [
-      {
-        title: "Getting Started",
-        items: [
-          {
-            title: "Introduction",
-            href: "/docs",
-            items: [],
-          },
-          {
-            title: "Installation",
-            href: "/docs/installation",
-            items: [],
-          },
-          {
-            title: "components.json",
-            href: "/docs/components-json",
-            items: [],
-          },
-        ],
-      },
-      {
-        title: "Installation",
-        items: [
-          {
-            title: "Next.js",
-            href: "/docs/installation/next",
-            items: [],
-          },
-          {
-            title: "Vite",
-            href: "/docs/installation/vite",
-            items: [],
-          },
-        ],
-      },
-      {
-        title: "Components",
-        items: [
-          {
-            title: "Accordion",
-            href: "/docs/components/accordion",
-            items: [],
-          },
-          {
-            title: "Alert",
-            href: "/docs/components/alert",
-            items: [],
-          },
-          {
-            title: "Alert Dialog",
-            href: "/docs/components/alert-dialog",
-            items: [],
-          },
-        ],
-      },
-      {
-        title: "Registry",
-        label: "New",
-        items: [
-          {
-            title: "Introduction",
-            href: "/docs/registry",
-            items: [],
-          },
-          {
-            title: "Getting Started",
-            href: "/docs/registry/getting-started",
-            items: [],
-          },
-          {
-            title: "Examples",
-            href: "/docs/registry/examples",
-            items: [],
-          },
-          {
-            title: "Open in v0",
-            href: "/docs/registry/open-in-v0",
-            items: [],
-          },
-          {
-            title: "FAQ",
-            href: "/docs/registry/faq",
-            items: [],
-          },
-          {
-            title: "registry.json",
-            href: "/docs/registry/registry-json",
-            items: [],
-          },
-          {
-            title: "registry-item.json",
-            href: "/docs/registry/registry-item-json",
-            items: [],
-          },
-        ],
-      },
-    ],
+    name: "基本",
+    label: "basic",
+    sidebarNav: createSidebarNav(basicNav),
   },
   mplus: {
-    name: "mplus",
-    label: "M+ Messenger",
-    sidebarNav: [
-      {
-        title: "開始使用",
-        items: [
-          {
-            title: "介紹",
-            href: "/docs/mplus",
-            items: [],
-          },
-        ],
-      },
-      {
-        title: "元件庫",
-        items: [
-          {
-            title: "聊天視窗",
-            href: "/docs/mplus/components/chat-window",
-            items: [],
-          },
-          {
-            title: "頁首",
-            href: "/docs/mplus/components/header",
-            items: [],
-          },
-          {
-            title: "登入",
-            href: "/docs/mplus/components/login",
-            items: [],
-          },
-          {
-            title: "側邊欄",
-            href: "/docs/mplus/components/sidebar",
-            items: [],
-          },
-        ],
-      },
-      {
-        title: "社群",
-        items: [
-          {
-            title: "安裝",
-            href: "https://ui.shadcn.com/docs/installation",
-            external: true,
-            items: [],
-          },
-          {
-            title: "貢獻指南",
-            href: "/community/contribution-guide",
-            items: [],
-          },
-        ],
-      },
-    ],
+    name: "M+ Messenger",
+    label: "mplus",
+    sidebarNav: createSidebarNav(mplusNav),
   },
 };

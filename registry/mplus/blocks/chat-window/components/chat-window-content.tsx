@@ -53,7 +53,7 @@ const messages = [
           className="text-blue-600 underline"
         >
           https://meet.mplusapp.com/b/archer-is-the-best
-        </a>
+        </a>{" "}
         開會囉
       </>
     ),
@@ -173,10 +173,9 @@ export function ChatWindowContent() {
               )}
 
               <div
-                className={cn(
-                  "max-w-5/6 space-y-1",
-                  isOwnMessage ? "items-end" : "flex-1",
-                )}
+                className={cn("flex max-w-5/6 flex-col space-y-1", {
+                  "items-start": isOwnMessage,
+                })}
               >
                 {msg.name && !isOwnMessage && (
                   <p className="text-muted-foreground text-sm font-medium">
@@ -185,12 +184,11 @@ export function ChatWindowContent() {
                 )}
                 <Card
                   className={cn(
-                    "inline-block w-fit p-3 shadow-sm",
+                    "p-3 shadow-sm",
                     isOwnMessage
                       ? "border-orange-200 bg-orange-100"
                       : "border-sky-200 bg-sky-100",
                   )}
-                  // style={{ maxWidth: "70%" }}
                 >
                   <div
                     className={cn(
@@ -201,7 +199,12 @@ export function ChatWindowContent() {
                     {msg.content}
                   </div>
                 </Card>
-                <p className="text-muted-foreground text-right text-xs">
+                <p
+                  className={cn(
+                    "text-muted-foreground text-xs",
+                    isOwnMessage ? "text-left" : "text-right",
+                  )}
+                >
                   {msg.time}
                 </p>
               </div>

@@ -21,7 +21,7 @@ const pokemonSchema = z.object({
   ),
 });
 
-async function getPokemonList({ limit = 10 }: { limit?: number }) {
+export async function getPokemonList({ limit = 10 }: { limit?: number }) {
   const response = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=${limit}`,
   );

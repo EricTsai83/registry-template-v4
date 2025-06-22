@@ -42,7 +42,7 @@ const messages = [
     id: 5,
     avatar: "https://i.imgur.com/your-avatar1.png",
     name: "Hsieh Archer 金城武 (Archer 阿秋)",
-    time: "2025/06/12 16:00",
+    time: "16:00",
     isSelf: false,
     content: (
       <>

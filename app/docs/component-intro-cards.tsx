@@ -3,8 +3,8 @@
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { styleUtils } from "@/config/styles";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { ExternalLink, Laptop, LucideIcon, User } from "lucide-react";
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 

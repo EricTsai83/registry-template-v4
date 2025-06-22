@@ -31,7 +31,7 @@ async function getPokemonList({ limit = 10 }: { limit?: number }) {
   return pokemonListSchema.parse(await response.json());
 }
 
-async function getPokemon(name: string) {
+export async function getPokemon(name: string) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
   if (!response.ok) {
     throw new Error("Failed to fetch pokemon");

@@ -1,6 +1,6 @@
 import { useEditorStore } from "@/store/editor-store";
 import { useQueryState } from "nuqs";
-import React from "react";
+import { useEffect } from "react";
 
 export const useThemePresetFromUrl = () => {
   const [preset, setPreset] = useQueryState("theme");
@@ -9,7 +9,7 @@ export const useThemePresetFromUrl = () => {
   );
 
   // Apply theme preset if it exists in URL and remove it
-  React.useEffect(() => {
+  useEffect(() => {
     if (preset) {
       applyThemePreset(preset);
       setPreset(null); // Remove the preset from URL

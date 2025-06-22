@@ -2,7 +2,7 @@
 
 import { useThemePresetFromUrl } from "@/hooks/use-theme-preset-from-url";
 import { applyThemeToElement } from "@/lib/apply-theme";
-import { createContext, useContext, useEffect } from "react";
+import { createContext, Suspense, useContext, useEffect } from "react";
 import { useEditorStore } from "../store/editor-store";
 
 type Theme = "dark" | "light";
@@ -76,7 +76,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
-      {children}
+      <Suspense>{children}</Suspense>
     </ThemeProviderContext.Provider>
   );
 }

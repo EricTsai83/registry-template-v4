@@ -20,6 +20,7 @@ export function ThemePresetSelector() {
     if (mode !== initialMode) {
       setThemeState({ ...themeState, currentMode: initialMode });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

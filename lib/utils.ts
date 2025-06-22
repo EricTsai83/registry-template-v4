@@ -44,8 +44,13 @@ export function isDeepEqual(a: unknown, b: unknown): boolean {
     if (aKeys.length !== bKeys.length) return false;
     for (const key of aKeys) {
       if (!bKeys.includes(key)) return false;
-      // @ts-ignore
-      if (!isDeepEqual((a as any)[key], (b as any)[key])) return false;
+      if (
+        !isDeepEqual(
+          (a as Record<string, unknown>)[key],
+          (b as Record<string, unknown>)[key],
+        )
+      )
+        return false;
     }
     return true;
   }

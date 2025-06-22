@@ -77,7 +77,7 @@ export function ThemePresetButtons({
       animate: { x: [initialOffset, initialOffset - totalWidth] }, // Animate based on original set width, starting from offset
       transition: {
         duration,
-        ease: "linear",
+        ease: "linear" as const,
         repeat: Infinity,
       },
       style: { x: initialOffset }, // Apply initial offset
@@ -110,7 +110,7 @@ export function ThemePresetButtons({
           className="flex"
           style={rowData!.style} // Apply dynamic styles like initial offset
           animate={rowData!.animate}
-          transition={rowData!.transition as any}
+          transition={rowData!.transition}
           whileHover={{ animationPlayState: "paused" }} // Pause row on hover
         >
           {/* Inner div necessary for spacing when using justify-content */}
